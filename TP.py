@@ -2,7 +2,11 @@
 #Introduccion a la Programacion
 #lenguaje: Python
 #Nombre: Nicolás Trusz
+#        Pablo Alejandro Hernandez
+#        Tania Belén Sanchez
 #Email: nicolastrus@gmail.com
+#Email: pabli.edu.ale@gmail.com
+#Email: sanchez.taniabelen@gmail.com
 class Cliente:
     def __init__(self, nombre, edad, licencia, vip):
         self.nombre = nombre
