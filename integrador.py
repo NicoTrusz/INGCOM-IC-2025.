@@ -246,9 +246,9 @@ def main():
     # En Bariloche se podrían agregar seguros especiales, si es necesario.
 
     # Crear clientes
-    client1 = Cliente(nombre="Juan", apellido="Pérez", dni="12345678", edad=30, origen="local",
+    client1 = Cliente(nombre="Juan", apellido="Pérez", dni="12345678", edad=30, origen="local", # colocar en un input
                       licencia_vigente=True)
-    client2 = Cliente(nombre="María", apellido="López", dni="87654321", edad=24, origen="local",
+    client2 = Cliente(nombre="María", apellido="López", dni="87654321", edad=24, origen="local", # colocar en un input
                       licencia_vigente=True)  # Edad insuficiente (debe rechazar)
     # Cliente VIP
     vip_info = {'fecha_vencimiento': '2025-12-31', 'descuento': 10}  # 10% de descuento
