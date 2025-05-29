@@ -25,8 +25,12 @@ def obtener_tarifa(modelo):
     return tarifas.get(modelo, 0)
 
 def mes_del_año(mes):
-    meses = {"enero" : 20, "febrero": 20, "marzo": 10, "abril": 10, "mayo": 10, "junio": 10, "julio": 20, "agosto": 20, "septiembre": 10, "octubre": 10, "noviembre": 10, "diciembre": 10}
+    meses = {"enero" : 20, "febrero": 20, "marzo": 10, "abril": 10, "mayo": 10, "junio": 20, "julio": 20, "agosto": 20, "septiembre": 20, "octubre": 10, "noviembre": 10, "diciembre": 20}
     return meses.get(mes,0)
+
+def tiempo_alquiler(dias):
+    tarifas = {"diaria": 1, "fin de semana": 3, "semana": 5, "mes o superior": 30}
+    return tarifas.get(dias, 0)
 
 def calcular_recargo(tipo_cliente):
     recargos = {"local": 10, "turista nacional": 15, "turista internacional": 20}
@@ -48,6 +52,7 @@ def alquiler_vehiculo():
     licencia = input("Ingrese tipo de licencia (municipal/nacional/internacional): ").lower()
     tipo_cliente = input("Ingrese tipo de cliente (local/turista nacional/turista internacional): ").lower()
     mes = input("Ingrese mes de alquiler (enero/febrero/marzo/abril/mayo/junio/julio/agosto/septiembre/octubre/noviembre/diciembre): ").lower()
+    tiempo_de_alquiler = input("cantidad de tiempo de alquiler: (diaria/fin de semana/semana/mes o superior): ").lower()
     vip = input("¿Es cliente VIP? (si/no): ").lower() == "si"
 
     if licencia == "internacional" and tipo_cliente != "turista internacional":
@@ -63,7 +68,8 @@ def alquiler_vehiculo():
         seguro = obtener_seguro()
         descuento = calcular_descuento_vip(vip)
         temporada = mes_del_año(mes)
-        total_pago = tarifa + recargo + seguro + temporada - descuento
+        tiempo = tiempo_alquiler (tiempo_de_alquiler)
+        total_pago = (tarifa + recargo + seguro + temporada)*tiempo - descuento
         print(f"Total a pagar: {total_pago}")
 
         pago = float(input("Ingrese monto de pago: "))
