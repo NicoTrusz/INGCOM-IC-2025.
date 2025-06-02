@@ -21,12 +21,15 @@ class Vehiculo:
 
 def verificar_disponibilidad(modelo):
     # Simulación de consulta de disponibilidad
-    vehiculos_disponibles = ["camioneta", "auto 4 puertas", "convertible"]
+    vehiculos_disponibles = ["mini compactos", "pequeños", "compactos", "grandes", "de prestigio", "de lujo", "suv", "familiares"]
     return modelo in vehiculos_disponibles
 
 def obtener_tarifa(modelo):
-    tarifas = {"camioneta": 50, "auto 4 puertas": 80, "convertible": 100}
+    tarifas = {"mini compactos": 50, "pequeños": 80, "compactos": 100, "grandes": 120,"de prestigio":140,"de lujo":160,"suv":180,"familiares":202000}
     return tarifas.get(modelo, 0)
+def equipamiento_vehiculo(equipo):
+    equipamiento = {"sin":0 ,"cadenas":10,"neumaticos especiales":20 }
+    return equipamiento.get(equipo,0)
 
 def mes_del_año(mes):
     meses = {"enero" : 20, "febrero": 20, "marzo": 10, "abril": 10, "mayo": 10, "junio": 20, "julio": 20, "agosto": 20, "septiembre": 20, "octubre": 10, "noviembre": 10, "diciembre": 20}
@@ -63,17 +66,18 @@ def alquiler_vehiculo():
         print("Licencia inválida para alquiler.")
         return
 
-    modelo_vehiculo = input("Ingrese el modelo de vehículo deseado: ")
+    modelo_vehiculo = input("Ingrese el modelo de vehículo deseado (mini compactos/pequeños/compactos/grandes/de prestigio/de lujo/suv/familiares): ").lower()
     if verificar_disponibilidad(modelo_vehiculo):
         print("Vehículo disponible.")
-        
+        equipamiento = input("Ingrese equipamiento deseado (sin/cadenas/neumaticos especiales): ").lower()
         tarifa = obtener_tarifa(modelo_vehiculo)
         recargo = calcular_recargo(tipo_cliente)
         seguro = obtener_seguro()
         descuento = calcular_descuento_vip(vip)
         temporada = mes_del_año(mes)
         tiempo = tiempo_alquiler (tiempo_de_alquiler)
-        total_pago = (tarifa + recargo + seguro + temporada)*tiempo - descuento
+        equipamiento_auto = equipamiento_vehiculo(equipamiento) 
+        total_pago = (tarifa + recargo + seguro + temporada + equipamiento_auto )*tiempo - descuento
         print(f"Total a pagar: {total_pago}")
 
         pago = float(input("Ingrese monto de pago: "))
