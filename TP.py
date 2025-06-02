@@ -25,7 +25,7 @@ def verificar_disponibilidad(modelo):
     return modelo in vehiculos_disponibles
 
 def obtener_tarifa(modelo):
-    tarifas = {"mini compactos": 50, "pequeños": 80, "compactos": 100, "grandes": 120,"de prestigio":140,"de lujo":160,"suv":180,"familiares":202000}
+    tarifas = {"mini compactos": 50, "pequeños": 80, "compactos": 100, "grandes": 120,"de prestigio":140,"de lujo":160,"suv":180,"familiares":200}
     return tarifas.get(modelo, 0)
 def equipamiento_vehiculo(equipo):
     equipamiento = {"sin":0 ,"cadenas":10,"neumaticos especiales":20 }
