@@ -8,6 +8,8 @@
 #Email: pabli.edu.ale@gmail.com
 #Email: sanchez.taniabelen@gmail.com
 
+# se pueden utilizar pero no es necesario 
+
 #class Cliente:
 #    def __init__(self, nombre, edad, licencia, vip):
 #        self.nombre = nombre
