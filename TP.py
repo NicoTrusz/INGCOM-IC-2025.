@@ -93,7 +93,7 @@ def alquiler_vehiculo():
 
         pago = float(input("Ingrese monto de pago: "))
         if pago < total_pago:
-            print(f"Pago insuficiente, saldo pendiente: {total_pago - pago}, permiso municipal: {permiso}")
+            print(f"Pago insuficiente, saldo pendiente: {total_pago - pago}")
         
         print("Alquiler confirmado, permiso municipal:", permiso, ". Disfrute su viaje.")
     else:
