@@ -27,6 +27,7 @@ def verificar_disponibilidad(modelo):
 def obtener_tarifa(modelo):
     tarifas = {"mini compactos": 50, "pequeños": 80, "compactos": 100, "grandes": 120,"de prestigio":140,"de lujo":160,"suv":180,"familiares":200}
     return tarifas.get(modelo, 0)
+
 def equipamiento_vehiculo(equipo):
     equipamiento = {"sin":0 ,"cadenas":10,"neumaticos especiales":20 }
     return equipamiento.get(equipo,0)
@@ -49,6 +50,10 @@ def obtener_seguro():
 def calcular_descuento_vip(es_vip):
     return 10 if es_vip else 0
 
+def zona_geografica(zona):
+    zona = {"cicuito chico":10,"cerro catedral":20,"ruta 40":100,}
+    return zona.get(zona,0)
+
 def alquiler_vehiculo():
     nombre = input("Ingrese su nombre: ")
     edad = int(input("Ingrese su edad: "))
@@ -58,6 +63,7 @@ def alquiler_vehiculo():
 
     licencia = input("Ingrese tipo de licencia (municipal/nacional/internacional): ").lower()
     tipo_cliente = input("Ingrese tipo de cliente (local/turista nacional/turista internacional): ").lower()
+    permiso = input("¿Tiene permiso munisipal? (si/no): ").lower()
     mes = input("Ingrese mes de alquiler (enero/febrero/marzo/abril/mayo/junio/julio/agosto/septiembre/octubre/noviembre/diciembre): ").lower()
     tiempo_de_alquiler = input("cantidad de tiempo de alquiler: (diaria/fin de semana/semana/mes o superior): ").lower()
     vip = input("¿Es cliente VIP? (si/no): ").lower() == "si"
@@ -82,9 +88,9 @@ def alquiler_vehiculo():
 
         pago = float(input("Ingrese monto de pago: "))
         if pago < total_pago:
-            print(f"Pago insuficiente, saldo pendiente: {total_pago - pago}")
+            print(f"Pago insuficiente, saldo pendiente: {total_pago - pago}, permiso municipal: {permiso}")
         
-        print("Alquiler confirmado. Disfrute su viaje.")
+        print("Alquiler confirmado, permiso municipal:", permiso, ". Disfrute su viaje.")
     else:
         print("Vehículo no disponible. Intente con otro modelo.")
 
