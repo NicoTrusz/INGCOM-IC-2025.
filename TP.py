@@ -64,6 +64,7 @@ def alquiler_vehiculo():
     licencia = input("Ingrese tipo de licencia (municipal/nacional/internacional): ").lower()
     tipo_cliente = input("Ingrese tipo de cliente (local/turista nacional/turista internacional): ").lower()
     permiso = input("¿Tiene permiso munisipal? (si/no): ").lower()
+    zona = input("Ingrese zona geografica (cicuito chico/cerro catedral/ruta 40): ").lower()
     mes = input("Ingrese mes de alquiler (enero/febrero/marzo/abril/mayo/junio/julio/agosto/septiembre/octubre/noviembre/diciembre): ").lower()
     tiempo_de_alquiler = input("cantidad de tiempo de alquiler: (diaria/fin de semana/semana/mes o superior): ").lower()
     vip = input("¿Es cliente VIP? (si/no): ").lower() == "si"
@@ -79,11 +80,12 @@ def alquiler_vehiculo():
         tarifa = obtener_tarifa(modelo_vehiculo)
         recargo = calcular_recargo(tipo_cliente)
         seguro = obtener_seguro()
+        lugar = zona_geografica(zona)
         descuento = calcular_descuento_vip(vip)
         temporada = mes_del_año(mes)
         tiempo = tiempo_alquiler (tiempo_de_alquiler)
         equipamiento_auto = equipamiento_vehiculo(equipamiento) 
-        total_pago = (tarifa + recargo + seguro + temporada + equipamiento_auto )*tiempo - descuento
+        total_pago = (tarifa + recargo + seguro + temporada + equipamiento_auto + lugar )*tiempo - descuento
         print(f"Total a pagar: {total_pago}")
 
         pago = float(input("Ingrese monto de pago: "))
