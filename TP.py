@@ -7,17 +7,18 @@
 #Email: nicolastrus@gmail.com
 #Email: pabli.edu.ale@gmail.com
 #Email: sanchez.taniabelen@gmail.com
-class Cliente:
-    def __init__(self, nombre, edad, licencia, vip):
-        self.nombre = nombre
-        self.edad = edad
-        self.licencia = licencia
-        self.vip = vip
 
-class Vehiculo:
-    def __init__(self, modelo, disponible):
-        self.modelo = modelo
-        self.disponible = disponible
+#class Cliente:
+#    def __init__(self, nombre, edad, licencia, vip):
+#        self.nombre = nombre
+#        self.edad = edad
+#        self.licencia = licencia
+#        self.vip = vip
+
+#class Vehiculo:
+#    def __init__(self, modelo, disponible):
+#        self.modelo = modelo
+#        self.disponible = disponible
 
 def verificar_disponibilidad(modelo):
     # Simulación de consulta de disponibilidad
@@ -50,9 +51,9 @@ def obtener_seguro():
 def calcular_descuento_vip(es_vip):
     return 10 if es_vip else 0
 
-def zona_geografica(zona):
-    zona = {"cicuito chico":10,"cerro catedral":20,"ruta 40":100,}
-    return zona.get(zona,0)
+def zona_geografica(lugar):
+    zona = {"circuito chico":10,"cerro catedral":20,"ruta 40":100,}
+    return zona.get(lugar,0)
 
 def alquiler_vehiculo():
     nombre = input("Ingrese su nombre: ")
@@ -64,7 +65,7 @@ def alquiler_vehiculo():
     licencia = input("Ingrese tipo de licencia (municipal/nacional/internacional): ").lower()
     tipo_cliente = input("Ingrese tipo de cliente (local/turista nacional/turista internacional): ").lower()
     permiso = input("¿Tiene permiso munisipal? (si/no): ").lower()
-    zona = input("Ingrese zona geografica (cicuito chico/cerro catedral/ruta 40): ").lower()
+    zona = input("Ingrese zona geografica (circuito chico/cerro catedral/ruta 40): ").lower()
     mes = input("Ingrese mes de alquiler (enero/febrero/marzo/abril/mayo/junio/julio/agosto/septiembre/octubre/noviembre/diciembre): ").lower()
     tiempo_de_alquiler = input("cantidad de tiempo de alquiler: (diaria/fin de semana/semana/mes o superior): ").lower()
     vip = input("¿Es cliente VIP? (si/no): ").lower() == "si"
