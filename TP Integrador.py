@@ -66,7 +66,7 @@ def alquiler_vehiculo():
 
     licencia = input("Ingrese tipo de licencia (municipal/nacional/internacional): ").lower()
     tipo_cliente = input("Ingrese tipo de cliente (local/turista nacional/turista internacional): ").lower()
-    permiso = input("¿Tiene permiso munisipal? (si/no): ").lower() == "no"
+    permiso = input("¿Tiene permiso munisipal? (si/no): ").lower() 
     zona = input("Ingrese zona geografica (circuito chico/cerro catedral/ruta 40): ").lower()
     mes = input("Ingrese mes de alquiler (enero/febrero/marzo/abril/mayo/junio/julio/agosto/septiembre/octubre/noviembre/diciembre): ").lower()
     tiempo_de_alquiler = input("cantidad de tiempo de alquiler: (diaria/fin de semana/semana/mes o superior): ").lower()
@@ -96,6 +96,7 @@ def alquiler_vehiculo():
             print(f"Pago insuficiente, saldo pendiente: {total_pago - pago}")
         
         print("Alquiler confirmado, permiso municipal:", permiso, ". Disfrute su viaje.")
+
     else:
         print("Vehículo no disponible. Intente con otro modelo.")
 
