@@ -8,20 +8,7 @@
 #Email: pabli.edu.ale@gmail.com
 #Email: sanchez.taniabelen@gmail.com
 
-# se pueden utilizar pero no es necesario 
-
-#class Cliente:
-#    def __init__(self, nombre, edad, licencia, vip):
-#        self.nombre = nombre
-#        self.edad = edad
-#        self.licencia = licencia
-#        self.vip = vip
-
-#class Vehiculo:
-#    def __init__(self, modelo, disponible):
-#        self.modelo = modelo
-#        self.disponible = disponible
-
+# Este programa simula un sistema de alquiler de vehículos con diversas condiciones y tarifas.
 def verificar_disponibilidad(modelo):
     # Simulación de consulta de disponibilidad
     vehiculos_disponibles = ["mini compactos", "pequeños", "compactos", "grandes", "de prestigio", "de lujo", "suv", "familiares"]
