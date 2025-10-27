@@ -66,3 +66,41 @@ begin
   flags <= zcvn_arit when selec(1) = '0' else ALUlogic(R_log);
 
 end architecture;
+
+
+
+-----------------------------
+-----------------------------
+------------------------------
+------------ALU MATI---------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity ALU_Nbits is
+	generic (N:integer := 4);
+    port (
+        nro1, nro2 : in signed(N-1 downto 0);
+        selec : in std_logic_vector(1 downto 0);
+        resul : out signed(N-1 downto 0);
+        flags : out std_logic_vector(3 downto 0)
+    );
+end ALU_Nbits;
+
+architecture Behavioral of ALU_Nbits is
+signal signal_SumArit: signed(3 downto 0);
+signal signal_FuncLog: signed(3 downto 0);
+
+begin
+	with selec(1) select
+	resul <=  signal_SumArit when '0',
+ 		  signal_FuncLog when others;
+                       
+             
+    FuncLog_unit : entity work.FuncLog_Nbits(Behavioral)
+    	port map (A => nro1, B => nro2, r => signal_FuncLog, OP => selec(0));
+    
+    SumArit_unit : entity work.SumArit_Nbits(Behavioral)
+    	port map (A => nro1, B => nro2, OP => selec(0), r => signal_SumArit, zcvn => flags);
+        
+end Behavioral;   
